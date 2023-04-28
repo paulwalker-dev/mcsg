@@ -28,23 +28,16 @@ global : TOK_SEMI
        | def TOK_BEGIN body TOK_END
        ;
 
-def : TOK_NUM TOK_IDENT TOK_OPEN defargs TOK_CLOSE
+def : TOK_NUM TOK_IDENT TOK_OPEN args TOK_CLOSE
     ;
-
-defargs : var
-        | defargs TOK_COMMA var
-        ;
 
 body : expr
      | body expr
      ;
 
-expr : var TOK_ARROW call TOK_SEMI
-     | var TOK_ARROW TOK_IDENT TOK_SEMI
+expr : TOK_IDENT TOK_ARROW call TOK_SEMI
+     | TOK_IDENT TOK_ARROW TOK_IDENT TOK_SEMI
      ;
-
-var : TOK_NUM TOK_IDENT
-    ;
 
 call : TOK_IDENT TOK_OPEN args TOK_CLOSE
      ;
