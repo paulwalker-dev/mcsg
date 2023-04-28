@@ -1,0 +1,4 @@
+.direnv
+lex.yy.*
+y.tab.*
+mchdl
